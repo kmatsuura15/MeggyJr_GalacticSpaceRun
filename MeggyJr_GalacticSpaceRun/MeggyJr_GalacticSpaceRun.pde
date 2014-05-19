@@ -3,7 +3,7 @@
 //int shotCounter = 1;
 boolean round1 = false;
 boolean death = false;
-int xdoc = 16;
+int xdoc = 7;
 int ydoc = 7;
 int xcoord = 0;
 int ycoord = 5;
@@ -13,6 +13,7 @@ int yshot = 5;
 int xshot2 = 7;
 int yshot2 = 4;
 int mountainArray[8] = {4, 3, 1, 5, 2, 4, 3, 1};
+int time = 0;  //Ty 
 
 void setup()
 {
@@ -22,9 +23,14 @@ void setup()
 
 void loop()
 {
+ delay(100);
+ time++;
+ if (time == 30000){
+   DrawPx(xdoc,ydoc,Violet);
+ }
  DrawPx(xcoord,ycoord,Red);
  DrawPx(xshot,yshot, Blue);
- DrawPx(xdoc,ydoc,Violet);
+ DrawPx(xdoc,ydoc,Violet);//
  drawMountain();
  DisplaySlate();
  ClearSlate();
@@ -38,7 +44,7 @@ void loop()
    ycoord--;
    //mCounter++;
  } 
- if (ycoord > 7){
+ if (ycoord > 7){    //fix this
    ycoord = 7;
  }
  if (ycoord < 0){
@@ -58,7 +64,6 @@ void loop()
    xshot2 = 7;
    yshot2 = random(8);
  }
- 
  updateMountain();
   
  
@@ -101,6 +106,8 @@ void loop()
    ycoord = 5;
    death = false;
   }
+  //delay(300);
+  
 }
 
 
