@@ -34,7 +34,7 @@ void loop()
 {
  DrawPx(xcoord,ycoord,Red);    //Draws Player  
  DrawPx(xshot,yshot,Green);    //Draws first shot
- DrawPx(xshot2,yshot2,Green);    //Draws 2nd shot
+ DrawPx(xshot2,yshot2,Green);  //Draws 2nd shot
  drawMountain();    //draws the mountain
  DisplaySlate();
  ClearSlate();
@@ -62,7 +62,7 @@ void loop()
 void ifStatements()
 {
  if (round1){    //if it's round one...
-  if (marker >= 20){    //if the marker is greater than or equal to twenty, the docking station will spawn in.  Allowing the player to reach the next level.
+  if (marker >= 10){    //if the marker is greater than or equal to twenty, the docking station will spawn in.  Allowing the player to reach the next level.
     DrawPx(xdoc,ydoc,Violet);    //Draws the docking station
   }
    if (ycoord > 7){    //Doesn't let the player go above and outside the Meggy Screen
@@ -106,7 +106,7 @@ void ifStatements()
  }
  
  if (round2){    // if it's round 2...
-   round1 = false;  //it's not round 1 anymore.
+   round1 = false;  //it's not round 1 anymore. 
    marker = 0;    // marker gets reset to zero round will be longer 
    DrawPx(xshot3, yshot3, Green);    //Draws another shot
    if (marker >= 30){    //if the marker is over or equal to 30, the docking station will appear.
@@ -270,7 +270,7 @@ void drawMountain()
     DrawPx (x, i, Blue);    //coordinates of the mountains
     if (xcoord == x && ycoord == i){    //if player hits the mountain, the player dies.
       death = true;
-    }  
+    }
    }
  for (int c = 0; c < 8; c++)    //keeps track of the values in the Array.
  {
@@ -293,7 +293,6 @@ void updateMountain()
   for (int i = 0; i < 7; i++){    //the mountains will copy from left to right.
     mountainArray[i] = mountainArray[i+1];
   }
-  
   mountainArray[7] = random(8);    //the 7th mountain or last one will be a random height.
   while (mountainArray[7] > mountainArray[6]+2 && mountainArray[7] > 0)
   mountainArray[7] = random(8);
