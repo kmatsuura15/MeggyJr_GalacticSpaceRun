@@ -19,7 +19,7 @@ int yshot3 = random(8);    //random ycoord of shot 3
 int xshot4 = 3;    
 int yshot4 = random(8);
 int xshot5 = 5;
-int yshot5 = random(8);
+int yshot5 = random(8);  
 int direction = 270;    //initial direction
 int mountainArray[8] = {4, 3, 1, 5, 2, 4, 3, 1};    //initial y values of mountain.
 
@@ -92,7 +92,6 @@ void ifStatements()
  
    if (xshot2 == 7){
      yshot2 = random(8);
-     marker++;
    }
    if (xcoord == xshot && ycoord == yshot){    //these codes are the hit detection between the player and the shots and docking station.
      death = true;
@@ -107,6 +106,7 @@ void ifStatements()
  
  if (round2){    // if it's round 2...
    round1 = false;  //it's not round 1 anymore. 
+   Tone_Start(ToneA3, 500);
    marker = 0;    // marker gets reset to zero round will be longer 
    DrawPx(xshot3, yshot3, Green);    //Draws another shot
    if (marker >= 30){    //if the marker is over or equal to 30, the docking station will appear.
@@ -207,12 +207,15 @@ void ifStatements()
    }
    if (xshot3 == 7){
      yshot3 = random(8);
+
    }
    if (xshot4 == 7){
      yshot4 = random(8);
+
    }
    if (xshot5 == 7){
      yshot5 = random(8);
+
    }
    if (xcoord == xshot && ycoord == yshot){
      death = true;
@@ -235,6 +238,7 @@ void ifStatements()
  if (death){    //if you die, reset everything.
    ClearSlate();
    DisplaySlate();
+   Tone_Start(ToneC3, 500);
    delay(3000);
    xcoord = 0;
    ycoord = 5;
@@ -280,11 +284,6 @@ void drawMountain()
  Serial.println();
  }
 }
-
-
-
-
-
 
 
 
